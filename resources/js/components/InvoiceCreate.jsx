@@ -16,7 +16,7 @@ export default function InvoiceCreate() {
     const [userData, setUserData] = useState([]);
     const getUser = async () => {
         const responsess = await axios.get(
-            "http://127.0.0.1:8000/api/customer"
+            "http://127.0.0.1:8000/api/customer/customer"
         );
         setUserData(responsess?.data?.data?.customer);
     };
@@ -65,7 +65,7 @@ export default function InvoiceCreate() {
         }
         }else{
             const response = await axios.post(
-                "http://127.0.0.1:8000/api/invoice/create",
+                `http://127.0.0.1:8000/api/customer/create/${"invoiceCreate"}`,
                 data
             );
             if (response?.data?.sucess == true) {
@@ -73,7 +73,7 @@ export default function InvoiceCreate() {
                 setDate("");
                 setAmount("");
                 setStatus("");
-                toast.success('invoice updated succesfully');
+                toast.success('invoice created succesfully');
                 setLoading(false)
                 navigate("/invoice");
             }

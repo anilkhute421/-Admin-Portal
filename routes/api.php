@@ -23,11 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('/login' , [LoginController::class , 'login']);
-Route::middleware('auth:sanctum')->get('/customer' , [CoustomerController::class , 'customer']);
-Route::middleware('auth:sanctum')->post('/customer/create' , [CoustomerController::class , 'create']);
+Route::middleware('auth:sanctum')->get('/customer/{dataType?}' , [CoustomerController::class , 'customer']);
+Route::middleware('auth:sanctum')->post('/customer/create/{createType?}' , [CoustomerController::class , 'create']);
 Route::middleware('auth:sanctum')->get('/customer/details/{id?}' , [CoustomerController::class , 'view']);
 Route::middleware('auth:sanctum')->post('/customer/update/{id?}' , [CoustomerController::class , 'update']);
-Route::middleware('auth:sanctum')->post('/invoice/create' , [InvoiceController::class , 'create']);
 Route::middleware('auth:sanctum')->get('/invoice/details/{id?}' , [InvoiceController::class , 'view']);
 Route::middleware('auth:sanctum')->post('/invoice/update/{id?}' , [InvoiceController::class , 'update']);
 Route::middleware('auth:sanctum')->get('/signout' , [LoginController::class , 'signout']);

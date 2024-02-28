@@ -8,35 +8,6 @@ use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
-    //
-    public function create(Request $request){
-
-        $validator = validator($request->all(), [
-            'customer_id' => 'required',
-            'date' => 'required|date', // 0 all
-            'amount' => 'required',// 0 all
-            'status'  => 'required',
-        ]);
-        if ($validator->fails()) {
-            $response = [
-                'success' => false,
-                'message' => $validator->errors()->first(),
-                'status'  => 200
-            ];
-            return response()->json($response,201);
-        }
-
-        Invoice::create($request->all());
-        
-        $reponse = [
-            'sucess' => true,
-            'message' => 'Invoice created succefully'
-
-        ];
-        return response()->json($reponse , 200);
-    }
-
-
     public function view($id){
 
         $invoiceDetails = Invoice::where('id',$id)->first();

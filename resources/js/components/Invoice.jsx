@@ -6,7 +6,7 @@ export default function Invoice() {
     const [userData, setUserData] = useState([]);
     const getUser = async () => {
         const responsess = await axios.get(
-            "http://127.0.0.1:8000/api/customer"
+            "http://127.0.0.1:8000/api/customer/invoice"
         );
         
         console.log(responsess, "responsess");

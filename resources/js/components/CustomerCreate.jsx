@@ -57,7 +57,7 @@ export default function CustomerCreate() {
         }
 
         else{
-          const responsess = await axios.post("http://127.0.0.1:8000/api/customer/create", data);
+          const responsess = await axios.post("http://127.0.0.1:8000/api/customer/create/customerCreate", data);
           console.log(responsess, 'responsess');
           if(responsess?.data?.sucess == true){
               setName('');

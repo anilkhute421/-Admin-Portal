@@ -7,7 +7,7 @@ export default function About() {
     const getUser = async () => {
         try {
             const responses = await axios.get(
-                "http://127.0.0.1:8000/api/customer"
+                "http://127.0.0.1:8000/api/customer/customer"
             );
             console.log(responses, "responsess");
             setUserData(responses?.data?.data?.customer);
